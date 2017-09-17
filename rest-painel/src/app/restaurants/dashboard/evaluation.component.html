@@ -1,0 +1,41 @@
+<div id="modal" class="modal bottom-sheet">
+    <div class="modal-content">
+        <div class="row">
+            <div class="col s12">
+                <h4>Detalhes da avaliação</h4>
+            </div>
+            <div class="col s6">
+                <h5>Avaliação</h5>
+                <ul>
+                    <li><strong>Nome:</strong> Luis Alberto</li>
+                    <li><strong>estrelas: </strong>
+                        <i class="material-icons red-text">start</i>
+                        <i class="material-icons red-text">start</i>
+                        <i class="material-icons red-text">start</i>
+                        <i class="material-icons red-text">start</i>
+                    </li>
+                    <li><strong>Descrição:</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex
+                        exercitationem quisquam sed similique veritatis. Ad animi architecto inventore, itaque minus
+                        molestiae nostrum pariatur quibusdam soluta voluptatem. Aspernatur autem odit veritatis!
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col s6">
+                <h5>Responda</h5>
+
+                <form (submit)="save($event)">
+                    <div class="input-field">
+                        <textarea id="reply" class="materialize-textarea"></textarea>
+                        <label for="reply">Sua resposta</label>
+                    </div>
+                    <div class="input-field">
+                        <input type="submit" value="Salvar" class="btn">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h5>Avaliação</h5>

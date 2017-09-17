@@ -1,0 +1,144 @@
+<div class="row">
+    <div class="col s12">
+        <h4><i class="material-icons">keyboard_arrow_right</i>Dashboard
+            <small class="grey-text">bem vindo ao painel</small>
+        </h4>
+    </div>
+
+    <div class="col s3">
+        <div class="card">
+            <div class="card-content light-green white-text">
+                <span class="card-title">2</span>
+                novas avaliações
+            </div>
+        </div>
+    </div>
+    <div class="col s3">
+        <div class="card">
+            <div class="card-content red white-text">
+                <span class="card-title">3 de 5</span>
+                avaliação média
+            </div>
+        </div>
+    </div>
+    <div class="col s3">
+        <div class="card">
+            <div class="card-content blue white-text">
+                <span class="card-title">250</span>
+                Total de avaliações
+            </div>
+        </div>
+    </div>
+    <div class="col s3">
+        <div class="card">
+            <div class="card-content pink white-text">
+                <span class="card-title">6</span>
+                interações com telefone
+            </div>
+        </div>
+    </div>
+
+    <div class="col s12">
+        <div class="car card-content">
+            <span class="cart-title">Avaliações</span>
+
+            <table class="table">
+                <thead>
+                <tr>
+                    <th class="col-short">Nome</th>
+                    <th class="table-rate">Avaliação</th>
+                    <th>Mensagem</th>
+                    <th class="col-short"> - -</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Luis CC</td>
+                    <td>
+                        <i class="material-icons red-text">start</i>
+                        <i class="material-icons red-text">start</i>
+                        <i class="material-icons red-text">start</i>
+                        <i class="material-icons red-text">start</i>
+                    </td>
+                    <td class="truncate">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos labore quas quo sapiente,
+                        tempore tenetur ullam ut! At deleniti libero rerum sequi. Commodi dolorum esse ipsa laboriosam
+                        odit quidem repudiandae.
+                    </td>
+                    <td>
+                        <a [routerLink]="['evaluation/1']" class="btn">
+                            <i class="material-icons">question_answer</i>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Koda CC</td>
+                    <td>
+                        <i class="material-icons red-text">start</i>
+                        <i class="material-icons red-text">start</i>
+                        <i class="material-icons red-text">start</i>
+                    </td>
+                    <td class="truncate">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos labore quas quo sapiente,
+                        tempore tenetur ullam ut! At deleniti libero rerum sequi. Commodi dolorum esse ipsa laboriosam
+                        odit quidem repudiandae.
+                    </td>
+                    <td>
+                        <a [routerLink]="['evaluation/1']" class="btn">
+                            <i class="material-icons">question_answer</i>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Alberto CC</td>
+                    <td>
+                        <i class="material-icons red-text">start</i>
+                    </td>
+                    <td class="truncate">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos labore quas quo sapiente,
+                        tempore tenetur ullam ut! At deleniti libero rerum sequi. Commodi dolorum esse ipsa laboriosam
+                        odit quidem repudiandae.
+                    </td>
+                    <td>
+                        <a [routerLink]="['evaluation/1']" class="btn">
+                            <i class="material-icons">question_answer</i>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Meg CC</td>
+                    <td>
+                        <i class="material-icons red-text">start</i>
+                        <i class="material-icons red-text">start</i>
+                        <i class="material-icons red-text">start</i>
+                        <i class="material-icons red-text">start</i>
+                        <i class="material-icons red-text">start</i>
+                    </td>
+                    <td class="truncate">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos labore quas quo sapiente,
+                        tempore tenetur ullam ut! At deleniti libero rerum sequi. Commodi dolorum esse ipsa laboriosam
+                        odit quidem repudiandae.
+                    </td>
+                    <td>
+                        <a [routerLink]="['evaluation/1']" class="btn">
+                            <i class="material-icons">question_answer</i>
+                        </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <ul class="pagination">
+                <li class="disabled"><a [routerLink]="['']"><i class="material-icons">chevron_left</i></a></li>
+                <li class="active"><a [routerLink]="['']">1</a></li>
+                <li class="waves-effect"><a [routerLink]="['']">2</a></li>
+                <li class="waves-effect"><a [routerLink]="['']">3</a></li>
+                <li class="waves-effect"><a [routerLink]="['']">4</a></li>
+                <li class="waves-effect"><a [routerLink]="['']">5</a></li>
+                <li class="waves-effect"><i class="material-icons">chevron_right</i></li>
+            </ul>
+
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
