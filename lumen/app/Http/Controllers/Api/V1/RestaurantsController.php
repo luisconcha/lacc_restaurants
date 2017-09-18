@@ -13,9 +13,12 @@
 namespace App\Http\Controllers\Api\V1;
 
 
+use Illuminate\Http\Request;
+use Laravel\Lumen\Routing\Controller;
+
+use App\Address;
 use App\Http\Controllers\ApiControllerTrait;
 use App\Restaurant;
-use Laravel\Lumen\Routing\Controller;
 
 class RestaurantsController extends Controller
 {
@@ -37,6 +40,24 @@ class RestaurantsController extends Controller
     public function __construct(Restaurant $model)
     {
         $this->model = $model;
+    }
+
+    protected $relationships = ["address"];
+
+    public function address(Request $request, $id)
+    {
+        $restaurant = $this->model->findOrFail($id);
+        $address = $restaurant->address;
+
+        if (!$address) {
+            $address = Address::create($request->all());
+        } else {
+            $address->update($request->all());
+        }
+
+        $restaurant->address()->save($address);
+
+        return response()->json($address);
     }
 
 }

@@ -32,4 +32,9 @@ class Restaurant extends Model
         return null;
     }
 
+    public function address()
+    {
+        return $this->hasOne(Address::class);
+    }
+
 }

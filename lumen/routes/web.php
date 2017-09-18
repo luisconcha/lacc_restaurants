@@ -25,4 +25,9 @@ $app->group(['prefix' => 'api/v1', 'namespace' => 'Api\\V1', 'middleware' => ['a
     $app->put('restaurants/{id}', 'RestaurantsController@update');
     $app->post('restaurants/{id}', 'RestaurantsController@update');
     $app->delete('restaurants/{id}', 'RestaurantsController@destroy');
+
+    $app->post('restaurants/{id}/address', 'RestaurantsController@address');
+
+
+    $app->get('auth/me', 'AuthController@me');
 });

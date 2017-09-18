@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+    production: true,
+    server_url: 'seu_endereco_em_producao'
 };

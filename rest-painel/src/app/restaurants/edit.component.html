@@ -6,54 +6,57 @@
     </div>
 
     <div class="col s9">
-        <form class="row">
+        <form class="row" (submit)="save($event)">
             <div class="input-field col s12">
-                <input type="text" id="name">
+                <input type="text" id="name" name="name" [(ngModel)]="restaurant.name" placeholder="Nome">
                 <label for="name">Nome do restaurante</label>
             </div>
 
             <div class="input-field col s12">
-                <textarea id="description" class="materialize-textarea"></textarea>
+                <textarea id="description" name="description" [(ngModel)]="restaurant.description"
+                          class="materialize-textarea" placeholder="Descrição"></textarea>
                 <label for="description">Description do restaurant</label>
             </div>
 
             <div class="input-field col s6">
-                <input type="text" id="cep">
-                <label for="cep">CEP</label>
+                <input type="text" id="cep" name="cep" [(ngModel)]="address.cep" placeholder="CEP"
+                       (keyup)="searchCep()">
+                <label for="cep">CEP::</label>
             </div>
 
             <div class="input-field col s9">
-                <input type="text" id="address">
+                <input type="text" name="address" [(ngModel)]="address.address" placeholder="address" id="address">
                 <label for="address">Endereço</label>
             </div>
 
             <div class="input-field col s3">
-                <input type="text" id="numero">
-                <label for="numero">Número</label>
+                <input type="text" name="number" [(ngModel)]="address.number" placeholder="numero" id="number">
+                <label for="number">Número</label>
             </div>
 
             <div class="input-field col s6">
-                <input type="text" id="city">
+                <input type="text" name="city" [(ngModel)]="address.city" placeholder="Cidade" id="city">
                 <label for="city">Cidade</label>
             </div>
 
             <div class="input-field col s6">
-                <input type="text" id="bairro">
+                <input type="text" name="bairro" [(ngModel)]="address.neighborhood" placeholder="Bairro" id="bairro">
                 <label for="bairro">Bairro</label>
             </div>
 
             <div class="input-field col s6">
-                <input type="text" id="estado">
-                <label for="estado">Estado</label>
+                <input type="text" name="state" [(ngModel)]="address.state" placeholder="Estado" id="state">
+                <label for="state">Estado</label>
             </div>
 
             <div class="input-field col s12">
-                <input type="text" id="complement">
+                <input type="text" name="complement" [(ngModel)]="address.complement" placeholder="Complemento"
+                       id="complement">
                 <label for="complement">Complemento</label>
             </div>
 
             <div class="input-field col s12">
-                <input type="button" value="Salvar" class="btn">
+                <input type="submit" value="Salvar" class="btn">
             </div>
 
         </form>
