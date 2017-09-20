@@ -65,7 +65,13 @@
 
     <div class="col s3">
         <div class="card-panel grey white-text center-align photo-changer"
-             [ngClass]="{'lighten-1':dragging}"
+             [ngClass]="{
+                'lighten-1':dragging,
+                'grey': upload_status ==='not',
+                'amber': upload_status ==='sending',
+                'green': upload_status ==='success',
+                'red': upload_status ==='error'
+                }"
              (click)="file.click()"
              (drop)="upload($event)"
              (dragover)="dragover($event)"
@@ -73,8 +79,17 @@
 
             <i class="material-icons">insert_photo</i>
             <p *ngIf="!dragging;else release">Arrastre sua foto aqui ou clique para enviar</p>
-            <ng-template #release><p>Solte para enviar</p></ng-template>
-            <input type="file" accept="image/*" #file style="display: none;">
+            <ng-template #release>
+                <p *ngIf="upload_status === 'not'">Solte para enviar</p>
+                <p *ngIf="upload_status === 'sending'">Enviando, favor aguarde...</p>
+                <p *ngIf="upload_status === 'success'">Enviado com sucesso, você pode arrastrar ou
+                    clicar para enviar
+                    outro</p>
+                <p *ngIf="upload_status === 'error'">Error ao enviar imagem para o servidor, tente
+                    novamente ou contate ...</p>
+            </ng-template>
+
+            <input type="file" accept="image/*" #file style="display: none;" (change)="upload($event)">
         </div>
     </div>
 </div>
@@ -92,32 +107,22 @@
                          class="materialboxed responseive-img" width="650"/>
                     <a class="btn"><i class="material-icons">cancel</i></a>
                 </div>
-                <div class="col s3 margin-bottom">
-                    <img src="http://3.bp.blogspot.com/-9p4wwsufLgM/VIWshn8-OvI/AAAAAAAAMYY/Y12Ve3Eg-2w/s1600"
-                         class="materialboxed responseive-img" width="650"/>
-                    <a class="btn"><i class="material-icons">cancel</i></a>
-                </div>
-                <div class="col s3 margin-bottom">
-                    <img src="http://3.bp.blogspot.com/-9p4wwsufLgM/VIWshn8-OvI/AAAAAAAAMYY/Y12Ve3Eg-2w/s1600"
-                         class="materialboxed responseive-img" width="650"/>
-                    <a class="btn"><i class="material-icons">cancel</i></a>
-                </div>
-                <div class="col s3 margin-bottom">
-                    <img src="http://3.bp.blogspot.com/-9p4wwsufLgM/VIWshn8-OvI/AAAAAAAAMYY/Y12Ve3Eg-2w/s1600"
-                         class="materialboxed responseive-img" width="650"/>
-                    <a class="btn"><i class="material-icons">cancel</i></a>
-                </div>
             </div>
         </div>
 
         <div class="car-action">
-            <div class="file-field input-field">
-                <div class="btn">
-                    <span>Foto</span>
-                    <input type="file">
+            <div class="row">
+                <div class="file-field input-field col s9">
+                    <div class="btn">
+                        <span>Foto</span>
+                        <input type="file" (change)="preparePhoto($event)">
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-pth validate" type="text">
+                    </div>
                 </div>
-                <div class="file-path-wrapper">
-                    <input class="file-pth validate" type="text">
+                <div class="input-field col s3 right-align">
+                    <input type="submit" value="enviar" class="btn" (click)="sendPhoto()">
                 </div>
             </div>
         </div>

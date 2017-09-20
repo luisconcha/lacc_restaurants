@@ -41,7 +41,7 @@ trait UploadObserverTrait
         if (is_a($model->$field, UploadedFile::class) and $model->$field->isValid()) {
             $previous_image = $model->getOriginal($field);
             $this->upload($model);
-            Storage::delete($this->path . $previous_image);
+            Storage::delete($this->path .'/'. $previous_image);
         }
     }
 
