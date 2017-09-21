@@ -34,5 +34,8 @@ $app->group(['prefix' => 'api/v1', 'namespace' => 'Api\\V1', 'middleware' => ['a
     $app->delete('restaurants/photos/{id:[0-9]+}', 'RestaurantPhotosController@destroy');
 
 
+    //$app->get('restaurants/{id:[0-9]+}/photo/{img}', 'RestaurantPhotosController@getRestaurantImage');
+
+
     $app->get('auth/me', 'AuthController@me');
 });

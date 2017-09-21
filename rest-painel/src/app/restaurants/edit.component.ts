@@ -10,11 +10,13 @@ import { RestaurantService } from "./restaurant.service";
 
 export class EditComponent implements OnInit {
 
-    dragging: boolean     = false;
-    restaurant: any       = {};
-    address: any          = {};
-    upload_status: string = 'not';
-    restaurantPhoto: any  = null;
+    dragging: boolean      = false;
+    restaurant: any        = {};
+    photos: any            = {};
+    photos_restaurant: any = {};
+    address: any           = {};
+    upload_status: string  = 'not';
+    restaurantPhoto: any   = null;
 
 
     constructor( protected appHttpService: AppHttpService,
@@ -33,10 +35,23 @@ export class EditComponent implements OnInit {
                         this.restaurant = res;
                         this.address    = res.address || {};
                         window.Materialize.updateTextFields();
-                        console.log( 'this.restaurant: ', this.restaurant );
+
+                        return this.httpService.builder( '/' + this.restaurant.id + '/photos' ).list();
+
+                    } )
+                    .then( ( res ) => {
+                        this.photos = res;
                     } );
             } );
     }
+
+    //getImageSourceFromPhotoPath( img ) {
+    //
+    //    return this.httpService.viewImg( img )
+    //        .then( ( resImg ) => {
+    //            this.photos_restaurant =  resImg;
+    //        } );
+    //}
 
     upload( e ) {
         e.preventDefault();
@@ -72,10 +87,10 @@ export class EditComponent implements OnInit {
 
     searchCep() {
         let cep = this.address.cep || null;
+
         if ( cep && cep.length === 8 ) {
             this.httpService.getCep( cep )
                 .then( ( res ) => {
-                    console.log( 'OAA: ', res );
                     this.address = {
                         cep: cep,
                         address: res.logradouro,

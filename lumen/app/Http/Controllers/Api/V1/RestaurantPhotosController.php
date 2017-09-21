@@ -15,6 +15,7 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Controllers\ApiControllerTrait;
 use App\RestaurantPhoto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Laravel\Lumen\Routing\Controller;
 
 
@@ -44,5 +45,11 @@ class RestaurantPhotosController extends Controller
 
         return response()->json($result);
     }
+
+//    public function getRestaurantImage($img)
+//    {
+//        $pathToFile = 'storage/app/restaurant_photo/' . $img;
+//        return response()->download($pathToFile);
+//    }
 
 }

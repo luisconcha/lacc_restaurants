@@ -33,4 +33,12 @@ export class RestaurantService extends AppHttpService {
                 return res.json() || {};
             } );
     }
+
+    //viewImg( url: string ) {
+    //    return this.http.get(  'http://localhost:8000/api/v1/restaurants/photo/1/' + url, { headers: this.header } )
+    //        .toPromise()
+    //        .then( ( res ) => {
+    //            return res.json() || {};
+    //        } );
+    //}
 }
