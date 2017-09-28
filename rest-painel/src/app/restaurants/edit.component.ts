@@ -35,13 +35,16 @@ export class EditComponent implements OnInit {
                     .then( ( res ) => {
                         this.restaurant = res;
                         this.address    = res.address || {};
-                        this.photos     = res;
-                        
+
                         window.Materialize.updateTextFields();
 
                         return this.httpService.builder( '/' + this.restaurant.id + '/photos' ).list();
 
                     } )
+                    .then( ( res ) => {
+                        console.log('Aqui: ', res);
+                        this.photos = res;
+                    } );
             } );
     }
 
