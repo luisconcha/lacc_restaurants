@@ -19,18 +19,9 @@ class Restaurant extends Model
 {
     protected $path = 'restaurant/';
 
-    protected $fillable = ['name', 'description', 'photo'];
+    protected $fillable = ['name', 'description', 'photo', 'user_id'];
 
     protected $appends = ['photo_full_url'];
-
-//    protected function getPhotoFullUrlAttribute()
-//    {
-//        if ($this->attributes['photo']) {
-//            return Storage::url($this->path . $this->photo);
-//        }
-//
-//        return null;
-//    }
 
     protected function getPhotoFullUrlAttribute()
     {
